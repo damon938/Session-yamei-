@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>QR CODE - Queen Yamei</title>
+</head>
+<body>
+    <h2>QR CODE DU BOT</h2>
+    <img id="qr" width="300">
+
+    <script>
+        fetch("/qr")
+        .then(res => res.text())
+        .then(html => {
+            document.getElementById("qr").src = html.match(/src="(.*?)"/)[1];
+        });
+    </script>
+</body>
+</html>
